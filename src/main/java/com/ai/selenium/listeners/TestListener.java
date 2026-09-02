@@ -11,33 +11,26 @@ public class TestListener implements ITestListener {
     private static final Logger logger = LogManager.getLogger(TestListener.class);
 
     @Override
-    public void onStart(ITestResult result) {
+    public void onTestStart(ITestResult result) {
         logger.info("========================================");
         logger.info("Test Started: " + result.getName());
         logger.info("========================================");
     }
 
     @Override
-    public void onFinish(ITestResult result) {
-        logger.info("========================================");
-        logger.info("Test Finished: " + result.getName());
-        logger.info("========================================");
-    }
-
-    @Override
-    public void onFailure(ITestResult result) {
+    public void onTestFailure(ITestResult result) {
         logger.error("Test FAILED: " + result.getName());
         logger.error("Failure Reason: " + result.getThrowable());
         ScreenshotUtil.takeScreenshot(result.getName() + "_FAILED");
     }
 
     @Override
-    public void onSuccess(ITestResult result) {
+    public void onTestSuccess(ITestResult result) {
         logger.info("Test PASSED: " + result.getName());
     }
 
     @Override
-    public void onSkipped(ITestResult result) {
+    public void onTestSkipped(ITestResult result) {
         logger.warn("Test SKIPPED: " + result.getName());
     }
 }

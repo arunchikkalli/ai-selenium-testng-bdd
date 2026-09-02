@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30">
+    <Properties>
+        <Property name="log.path">logs</Property>
+        <Property name="log.pattern">%d{yyyy-MM-dd HH:mm:ss} [%-5p] %c{1} - %m%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log.pattern}" />
+        </Console>
+
+        <RollingFile name="RollingFile" fileName="${log.path}/app.log"
+                     filePattern="${log.path}/app-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${log.pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="30" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
+        </Root>
+        <Logger name="com.ai.selenium" level="debug" />
+    </Loggers>
+</Configuration>

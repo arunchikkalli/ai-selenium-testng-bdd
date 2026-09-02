@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-current.dtd">
+<suite name="AI Selenium BDD Test Suite" parallel="false" thread-count="1">
+    <listeners>
+        <listener class-name="com.ai.selenium.listeners.TestListener" />
+    </listeners>
+
+    <test name="Login Feature Tests" verbose="2">
+        <classes>
+            <class name="com.ai.selenium.runners.CucumberTestRunner" />
+        </classes>
+    </test>
+</suite>

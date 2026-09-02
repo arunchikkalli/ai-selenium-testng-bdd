@@ -1,0 +1,1 @@
+{\n  "baseUrl": "https://example.com/login",\n  "browser": "chrome",\n  "headless": false,\n  "implicitWait": 10,\n  "explicitWait": 15,\n  "screenshotPath": "screenshots",\n  "remote": false,\n  "remoteUrl": "http://localhost:4444"\n}\n
